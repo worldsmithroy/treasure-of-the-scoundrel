@@ -17,7 +17,7 @@ default_coin_thickness = 2;
 //		Child 0 : The 2D design that will be displayed on the front face of the coin
 //		Child 1 : The 2D design that will be displayed on the reverse face of the coin
 // If only one design is provided, it will be displayed on both sides
-module coin (diameter = BASE_DIAMETER, thickness = default_coin_thickness) {
+module render_coin (diameter = BASE_DIAMETER, thickness = default_coin_thickness) {
 	radius = diameter / 2;
 	reverse_face_id = ($children > 1) ? 1 : 0;
 
