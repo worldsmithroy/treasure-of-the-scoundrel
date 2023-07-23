@@ -10,14 +10,6 @@ BASE_DIAMETER = 100;
 // The thickness of the coin
 default_coin_thickness = 2;
 
-coin(25) text(
-		        text = "100",
-		        font = "Palatino",
-		        size = 100 / 3,
-		        halign = "center",
-		        valign = "center"
-		        );;
-
 // Creates a coin with value, dimension, and design
 // value 	: the value displayed on the coin
 // diameter : the diameter of the coin
