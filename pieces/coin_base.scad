@@ -1,6 +1,4 @@
 include <BOSL2/std.scad>
-include <BOSL2/transforms.scad>
-include <BOSL2/shapes2d.scad>
 
 // Basic Coin generation logic
 
