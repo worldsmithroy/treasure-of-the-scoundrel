@@ -13,7 +13,7 @@ default_coin_thickness = 2;
 coin(25) text(
 		        text = "100",
 		        font = "Palatino",
-		        size = 25 / 3,
+		        size = 100 / 3,
 		        halign = "center",
 		        valign = "center"
 		        );;
@@ -22,16 +22,16 @@ coin(25) text(
 // value 	: the value displayed on the coin
 // diameter : the diameter of the coin
 // children	: 2D Patterns displaying on the coin
-//		Child(0) : The design that will be displayed on the front face of the coin
-module coin (diameter = base_diameter) {
+//		Child 0 : The 2D design that will be displayed on the front face of the coin
+//		Child 1 : The 2D design that will be displayed on the reverse face of the coin
+// If only one design is provided, it will be displayed on both sides
+module coin (diameter = base_diameter, thickness = default_coin_thickness) {
 	radius = diameter / 2;
-	coin_base(radius);
-    // up(coin_thickness) coin_face() children(0);
-//    if ($children > 1) {
-//        mirror([1,0,0]) linear_extrude(coin_thickness) children(1);
-//    } else {
-//    	mirror([1,0,0]) linear_extrude(coin_thickness) children(0);
-//    }
+	reverse_face_id = ($children > 1) ? 1 : 0;
+
+	coin_base(radius, thickness);
+    zmove(thickness) coin_face(diameter) children(0);
+    mirror([1,0,0]) coin_face(diameter) children(reverse_face_id);
 }
 
 // Produces a blank coin body
@@ -45,6 +45,11 @@ module coin_base (radius, thickness = default_coin_thickness) {
     		square([thickness, thickness * 2]);
 }
 
-module coin_face(thickness = coin_thickness) {
-    linear_extrude(thickness) children(0);
+// Renders a 2D image (passed in as a child) into a coin-face
+// Diameter  : The diameter of the coin
+// Thickness : The thickness of the coin
+// Child 	 : The 2D image to be rendered (set in base_diameter)
+module coin_face(diameter = base_diameter, thickness = default_coin_thickness) {
+	size_shift = diameter / base_diameter;
+    linear_extrude(thickness) scale(size_shift) children(0);
 }
