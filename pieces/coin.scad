@@ -8,7 +8,7 @@ include <BOSL2/shapes2d.scad>
 base_diameter = 100;
 
 // The thickness of the coin
-coin_thickness = 2;
+default_coin_thickness = 2;
 
 coin(25) text(
 		        text = "100",
@@ -34,17 +34,15 @@ module coin (diameter = base_diameter) {
 //    }
 }
 
-module coin_base (radius) {
-	cylinder(
+// Produces a blank coin body
+module coin_base (radius, thickness = default_coin_thickness) {
+	up(thickness / 2) cylinder(
 		r = radius,
-		h = coin_thickness
+		h = thickness
 		);
-	up(coin_thickness / 2)
-		rotate_extrude(angle = 360)
-        	xmove(radius) zrot(90)
-            	teardrop2d(
-            		r = coin_thickness
-            	);
+	rotate_extrude(angle = 360)
+    	xmove(radius)
+    		square([thickness, thickness * 2]);
 }
 
 module coin_face(thickness = coin_thickness) {
