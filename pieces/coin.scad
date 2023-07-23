@@ -20,7 +20,7 @@ module front_face (value = "", center = true) {
 	if (center) {
 			front_number(value);
 	} else {
-		ymove(BASE_DIAMETER / 4) front_number(value);
+		ymove(-BASE_DIAMETER / 5) front_number(value);
 	}
 	children();
 }
