@@ -6,12 +6,34 @@ FONT = "Palatino:style=bold";
 // Renders a coin with a given front face and a semi-standard back
 // value 	: The value of the coin to be displayed
 // diameter : The diameter of the coin
-// child 	: The 2D image to be displayed on the front of the coin
-module coin (value = "", diameter = BASE_DIAMETER) {
+// center	: Center the number on the coin (False displays in lower front)
+// children : The 2D image to be displayed on the front of the coin
+module coin (value = "", diameter = BASE_DIAMETER, center = true) {
 	render_coin(diameter) {
-		children(0);
+		front_face(value, center) children();
         rear_face(value);
     }
+}
+
+// Renders the front face of the coin
+module front_face (value = "", center = true) {
+	if (center) {
+			front_number(value);
+	} else {
+		ymove(BASE_DIAMETER / 4) front_number(value);
+	}
+	children();
+}
+
+module front_number (value = "") {
+	font_size = BASE_DIAMETER / 3;
+
+	text(
+		text = value,
+		size = font_size,
+		font = FONT,
+		halign = "center",
+		valign = "center");
 }
 
 // Generates a standard rear-face for coins
@@ -21,12 +43,12 @@ module coin (value = "", diameter = BASE_DIAMETER) {
 // - A pair of the coin's value
 module rear_face (value = "") {
 	rect(
-		size = [10, 75],
-		rounding = -2.5
+		size = [10, 85],
+		rounding = -4
 		);
 	zrot(90) rect(
-		size = [10, 75],
-		rounding = -2.5
+		size = [10, 85],
+		rounding = -4
 		);
 	move([20, 20, 0]) rear_number(value);
 	move([-20, -20, 0]) rear_number(value);
@@ -36,7 +58,7 @@ module rear_face (value = "") {
 
 // Renders the rear number
 module rear_number (value = "") {
-	font_size = BASE_DIAMETER / 10;
+	font_size = BASE_DIAMETER / 8;
 
 	text(
 		text = value,
