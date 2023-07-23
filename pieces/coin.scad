@@ -5,7 +5,7 @@ include <BOSL2/shapes2d.scad>
 // Basic Coin generation logic
 
 // The default diameter of a coin (used to skew sizes)
-base_diameter = 100;
+BASE_DIAMETER = 100;
 
 // The thickness of the coin
 default_coin_thickness = 2;
@@ -25,7 +25,7 @@ coin(25) text(
 //		Child 0 : The 2D design that will be displayed on the front face of the coin
 //		Child 1 : The 2D design that will be displayed on the reverse face of the coin
 // If only one design is provided, it will be displayed on both sides
-module coin (diameter = base_diameter, thickness = default_coin_thickness) {
+module coin (diameter = BASE_DIAMETER, thickness = default_coin_thickness) {
 	radius = diameter / 2;
 	reverse_face_id = ($children > 1) ? 1 : 0;
 
@@ -48,8 +48,8 @@ module coin_base (radius, thickness = default_coin_thickness) {
 // Renders a 2D image (passed in as a child) into a coin-face
 // Diameter  : The diameter of the coin
 // Thickness : The thickness of the coin
-// Child 	 : The 2D image to be rendered (set in base_diameter)
-module coin_face(diameter = base_diameter, thickness = default_coin_thickness) {
-	size_shift = diameter / base_diameter;
+// Child 	 : The 2D image to be rendered (set in BASE_DIAMETER)
+module coin_face(diameter = BASE_DIAMETER, thickness = default_coin_thickness) {
+	size_shift = diameter / BASE_DIAMETER;
     linear_extrude(thickness) scale(size_shift) children(0);
 }
