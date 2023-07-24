@@ -1,6 +1,6 @@
 include <coin.scad>
 
-coin("100", 60, false) {
+coin("100", 40, false) {
 	ymove(25) death_crown();
 }
 
