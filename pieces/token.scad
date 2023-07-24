@@ -13,14 +13,17 @@ NESTING_OFFSET = WALL_THICKNESS;
 PIECE_HEIGHT = WALL_THICKNESS * 2;
 
 
-token_size_length = SQUARE_SIDE_LENGTH / 2;
-
-
+token_side_length = SQUARE_SIDE_LENGTH / 2;
 
 // Renders a standard token
+// Children are 2D image rendered on the token
 module token() {
-	rect(
-		size = [token_size_length, token_size_length],
-		rounding = token_size_length / 4
-		);
+	linear_extrude(PIECE_HEIGHT)
+		rect(
+			size = [token_side_length, token_side_length],
+			rounding = token_side_length / 4
+			);
+	up(PIECE_HEIGHT)
+		linear_extrude(WALL_THICKNESS)
+			children();
 }
