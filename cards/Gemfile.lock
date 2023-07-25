@@ -1,11 +1,15 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    cgi (0.3.6)
+    erb (2.2.3)
+      cgi
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  erb (~> 2.2)
 
 BUNDLED WITH
    2.4.17
