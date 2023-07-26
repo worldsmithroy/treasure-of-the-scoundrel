@@ -1,13 +1,15 @@
 div.card {
-	width:  180px;
-	height: 250px;
+	width:  225px;
+	height: 312px;
 	background-color: #FFCCCB;
+	padding: 5px;
 }
 
 /* Header styles */
 
 div.header {
-	padding: 5px;
+	padding: 10px 10px 15px 10px;
+	line-height: 35px;
 }
 
 h2{
@@ -16,6 +18,7 @@ h2{
 
 img.ghost-icon {
 	float: left;
+	opacity: 0.4;
 }
 
 span.rank-icon:before {
@@ -25,6 +28,8 @@ span.rank-icon:before {
 	display: block;
 	opacity: 0.3;
 	position: absolute;
+	width: 35px;
+	height: 35px;
 }
 
 .rank {
@@ -32,8 +37,8 @@ span.rank-icon:before {
 	position: relative;
 	font-size: 1.5em;
 	text-align: center;
-	width: 26px;
-	height: 26px;
+	width: 35px;
+	height: 35px;
 }
 
 /* Content Styles */
@@ -42,17 +47,18 @@ img.main-image {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: #FFFFFF;
 }
 
 img.icon {
-	width: 28px;
-	height: 28px;
+	width: 35px;
+	height: 35px;
 }
 
 /* Card Body Details */
 
 div.card-body {
-	padding: 10px;
+	padding: 15px;
 }
 
 .card-body > * {
@@ -79,7 +85,7 @@ table.stats {
 }
 
 
-@media print {
+/*@media print {
 	@page {
 		size: 216mm 279mm;
 	}
@@ -87,4 +93,4 @@ table.stats {
 
 @media screen {
 	size: 64mm 89mm;
-}
+}*/
