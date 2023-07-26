@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="card.css" />
+<div class="card">
+	<div class="header">
+		<img src="../assets/pentagram.svg" class="icon ghost-icon">
+		<div class="rank"><span class="rank-icon"> </span><%= ghost.rank %></div>
+		<h2><%= ghost.title %></h2>
+	</div>
+
+	<img src="<%= ghost.image %>" class="main-image" width="139" height="83" >
+
+	<div class="card-body" >
+		<table class="stats">
+			<tr>
+				<th id="health" >H</th>
+				<td><%= ghost.health %></td>
+			</tr>
+			<tr>
+				<th id="damage" >D</th>
+				<td><%= ghost.damage %></td>
+			</tr>
+			<tr>
+				<th id="dodge" >Do</th>
+				<td><%= ghost.dodge %></td>
+			</tr>
+			<tr>
+				<th id="strike" >S</th>
+				<td><%= ghost.strike %></td>
+			</tr>
+		</table>
+		<p class="attributes" ><%= ghost.attributes %></p>
+		<p class="flavor" ><%= ghost.flavor_text %></p>
+	</div>
+</div>

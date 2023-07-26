@@ -1,0 +1,90 @@
+div.card {
+	width:  180px;
+	height: 250px;
+	background-color: #FFCCCB;
+}
+
+/* Header styles */
+
+div.header {
+	padding: 5px;
+}
+
+h2{
+	margin: 0px 0px 0px 40px;
+}
+
+img.ghost-icon {
+	float: left;
+}
+
+span.rank-icon:before {
+	background-image: url("../assets/skull.svg");
+	background-repeat: no-repeat;
+	content: ' ';
+	display: block;
+	opacity: 0.3;
+	position: absolute;
+}
+
+.rank {
+	float: right;
+	position: relative;
+	font-size: 1.5em;
+	text-align: center;
+	width: 26px;
+	height: 26px;
+}
+
+/* Content Styles */
+
+img.main-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.icon {
+	width: 28px;
+	height: 28px;
+}
+
+/* Card Body Details */
+
+div.card-body {
+	padding: 10px;
+}
+
+.card-body > * {
+	margin: 0px;
+	padding: 5px 0px 5px 0px;
+}
+
+.attributes {
+	font-weight: bold;
+}
+
+ul.attributes {
+	list-style-type: none;
+}
+
+p.flavor {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+table.stats {
+	margin-right: 5px;
+	float: right;
+}
+
+
+@media print {
+	@page {
+		size: 216mm 279mm;
+	}
+}
+
+@media screen {
+	size: 64mm 89mm;
+}
